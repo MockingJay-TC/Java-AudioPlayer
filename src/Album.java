@@ -1,9 +1,11 @@
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Album {
     private String name, artist;
     private ArrayList<Song> songs;
+
     public Album(String name, String artist) {
         this.name = name;
         this.artist = artist;
@@ -18,16 +20,17 @@ public class Album {
         else return false;
     }
     private Song findSong(String titleOfSong){
-        for (Song song : songs) {
-            if (song.getTitle().equals(titleOfSong)) {
-                return song;
+        for(int i = 0; i < songs.size(); i++){
+            if(songs.get(i).getTitle().equals(titleOfSong)) {
+                return songs.get(i);
             }
         }
         return null;
     }
-    public boolean addToPlayList(int trackSong, LinkedList<Song> playlist){
-        if(trackSong < songs.size() && trackSong > -1){
-            playlist.add(songs.get(trackSong));
+
+    public boolean addToPlayList(int trackNumberOfSong, LinkedList<Song> playlist){
+        if(trackNumberOfSong < songs.size() && trackNumberOfSong > -1){
+            playlist.add(songs.get(trackNumberOfSong));
             return true;
         }
         return false;
@@ -39,5 +42,3 @@ public class Album {
         }
         return false;
     }
-}
-//Victor.Aremu
